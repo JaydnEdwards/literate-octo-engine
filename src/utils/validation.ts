@@ -8,7 +8,7 @@ export interface ValidationResult {
 export function validateStatBlock(data: unknown): ValidationResult {
 	const errors: string[] = [];
 
-	if (!data || typeof data !== 'object') {
+	if (!data || typeof data !== 'object' || Array.isArray(data)) {
 		return { valid: false, errors: ['Data must be an object'] };
 	}
 
@@ -41,7 +41,7 @@ export function validateStatBlock(data: unknown): ValidationResult {
 			errors.push('perks must be an array');
 		} else {
 			statblock.perks.forEach((perk: unknown, i: number) => {
-				if (!perk || typeof perk !== 'object') {
+				if (!perk || typeof perk !== 'object' || Array.isArray(perk)) {
 					errors.push(`perks[${i}] must be an object`);
 				} else {
 					const p = perk as Record<string, unknown>;

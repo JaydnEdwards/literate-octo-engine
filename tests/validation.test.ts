@@ -10,7 +10,9 @@ describe('validateStatBlock', () => {
 	it('returns invalid for non-objects', () => {
 		expect(validateStatBlock('string').valid).toBe(false);
 		expect(validateStatBlock(123).valid).toBe(false);
-		expect(validateStatBlock([]).valid).toBe(false);
+		const arrayResult = validateStatBlock([]);
+		expect(arrayResult.valid).toBe(false);
+		expect(arrayResult.errors).toContain('Data must be an object');
 	});
 
 	it('requires name field', () => {
@@ -70,6 +72,15 @@ describe('validateStatBlock', () => {
 		expect(result.errors).toContain('perks[0].effect is required');
 	});
 
+	it('rejects array entries in perks', () => {
+		const result = validateStatBlock({
+			name: 'Test',
+			perks: [['invalid']],
+		});
+		expect(result.valid).toBe(false);
+		expect(result.errors).toContain('perks[0] must be an object');
+	});
+
 	it('validates actions array structure', () => {
 		const result = validateStatBlock({
 			name: 'Test',
@@ -86,6 +97,15 @@ describe('validateStatBlock', () => {
 		});
 		expect(result.valid).toBe(false);
 		expect(result.errors).toContain('actions[0].cost must be a number');
+	});
+
+	it('rejects array entries in actions', () => {
+		const result = validateStatBlock({
+			name: 'Test',
+			actions: [['invalid']],
+		});
+		expect(result.valid).toBe(false);
+		expect(result.errors).toContain('actions[0] must be an object');
 	});
 });
 
