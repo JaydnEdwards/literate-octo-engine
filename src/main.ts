@@ -11,7 +11,7 @@ export default class DrakonymStatBlocks extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
-		this.registerMarkdownCodeBlockProcessor('dads', (source, el, ctx) => {
+		this.registerMarkdownCodeBlockProcessor('rbs', (source, el, ctx) => {
 			try {
 				const data = parseYaml(source) as StatBlock;
 				if (!data || typeof data !== 'object') {

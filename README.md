@@ -4,10 +4,10 @@ An Obsidian plugin for rendering TTRPG stat blocks from YAML code blocks. Design
 
 ## Usage
 
-Create a code block with the `dads` identifier and define your stat block in YAML:
+Create a code block with the `rbs` identifier and define your stat block in YAML:
 
 ````markdown
-```dads
+```rbs
 name: 
 kin: 
 type: 
