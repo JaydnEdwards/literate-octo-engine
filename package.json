@@ -8,20 +8,27 @@
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
 		"version": "node version-bump.mjs && git add manifest.json versions.json",
-		"lint": "eslint ."
+		"lint": "eslint .",
+		"test": "vitest run",
+		"test:watch": "vitest"
 	},
 	"keywords": [],
 	"license": "0-BSD",
 	"devDependencies": {
 		"@eslint/js": "9.30.1",
-		"@types/node": "^16.11.6",
-		"esbuild": "0.25.5",
+		"@sveltejs/vite-plugin-svelte": "^7.0.0",
+		"@testing-library/svelte": "^5.3.1",
+		"@types/node": "^22.19.17",
+		"esbuild": "^0.28.0",
 		"eslint-plugin-obsidianmd": "0.1.9",
 		"globals": "14.0.0",
 		"jiti": "2.6.1",
+		"jsdom": "^29.0.2",
 		"tslib": "2.4.0",
 		"typescript": "^5.8.3",
-		"typescript-eslint": "8.35.1"
+		"typescript-eslint": "8.35.1",
+		"vite": "^8.0.8",
+		"vitest": "^4.1.4"
 	},
 	"dependencies": {
 		"esbuild-svelte": "^0.9.4",
