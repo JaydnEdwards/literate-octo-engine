@@ -1,7 +1,7 @@
 {
 	"id": "unofficial-drakonym-statblocks",
 	"name": "Unofficial Drakonym Stat Blocks",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"minAppVersion": "0.15.0",
 	"description": "Adds stat block templates for the adversaries from the Drakonym TTRPG by Crossed Paths.",
 	"author": "Jaydn Edwards",
