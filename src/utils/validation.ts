@@ -62,7 +62,7 @@ export function validateStatBlock(data: unknown): ValidationResult {
 			errors.push('actions must be an array');
 		} else {
 			statblock.actions.forEach((action: unknown, i: number) => {
-				if (!action || typeof action !== 'object') {
+				if (!action || typeof action !== 'object' || Array.isArray(action)) {
 					errors.push(`actions[${i}] must be an object`);
 				} else {
 					const a = action as Record<string, unknown>;
