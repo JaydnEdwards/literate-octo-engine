@@ -45,16 +45,16 @@
 	<div class="drakonym-statblock-immunities">
 		{#if data.immunity || data.resistance || data.weakness}
 			<div class="drakonym-statblock-immunity-group">
-				{#if data.immunity}
-					<div class="drakonym-statblock-immunity">
-						<h2>Immunity</h2>
-						<span>{data.immunity}</span>
-					</div>
-				{/if}
 				{#if data.resistance}
 					<div class="drakonym-statblock-resistance">
 						<h2>Resistance</h2>
 						<span>{data.resistance}</span>
+					</div>
+				{/if}
+				{#if data.immunity}
+					<div class="drakonym-statblock-immunity">
+						<h2>Immunity</h2>
+						<span>{data.immunity}</span>
 					</div>
 				{/if}
 				{#if data.weakness}
